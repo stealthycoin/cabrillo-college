@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+chomp(@list = <STDIN>);
+@list = reverse @list;
+foreach $item (@list){
+    print $item . "\n";
+}

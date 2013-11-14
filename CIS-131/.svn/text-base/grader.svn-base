@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+$score = 0;
+$value = 0;
+while (<>) {
+    s/^.+://;
+    @fields = split(/\//, $_);
+    $value += pop @fields;
+    $score += pop @fields;
+}
+print "$score/$value" . "\n" . $score/$value*100 . "\%" . "\n";

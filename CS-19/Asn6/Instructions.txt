@@ -1,0 +1,106 @@
+Solitaire encryption is a method of encryption/decryption that uses a deck of playing cards as a key generator.
+
+First, to encrypt a message you need two things.
+1) the message (called the plaintext)
+2) 1 key per letter in the plaintext
+
+To encrypt the message you take the numerical equivalent of each letter in the plaintext, and add the corresponding key. If that number is larger than 26 (Z) then  subtract 26 to keep the new number within the bounds of the alphabet. Convert that number back to a letter and you have one letter of your cypher text.
+
+Example:
+encrypt the word THE using the keys 21, 5, and 11
+
+1) turn the word the into three numbers corresponding to their position in the alphabet. T = 20, H = 8, E = 5.
+
+2) add the key values to their corresponding letter.
+So we have:
+20 + 21= 41
+8   +  5= 13
+5   + 11=1 6
+
+40 is clearly too large to be in the alphabet, so subtract 26 to make it fit.
+40-26 = 15
+
+3) Now convert the numbers back into letters and you have your cypher text.
+15 = O, 13 = M, 16 = P
+so the cypher text is:
+OMP
+
+To decrypt this message we need the same three key values (21,5,11).
+Repeat the process except instead of adding the key subtract. If there is a negative number, add 26.
+
+
+Example decryption of NMP using the keys 21, 5 and 11
+1) convert letters to numbers
+O = 15, M = 13, P = 16
+
+2) Subtract the key values from their corresponding letters.
+15 - 21 = -6
+13 - 5 = 8
+16 - 11 = 5
+
+-6 is not a letter so we add 26 to it.
+-6+26 = 20
+
+3) Convert numbers back to letters:
+20 = T, 8 = H, 5 = E
+so the plaintext is:
+THE
+
+
+As previously mentioned the solitaire encryption method uses a deck of cards to generate keys.
+For this example I'll use a simple deck consisting of 10 cards. 1-8 and 2 jokers given the values 9 and 10.
+
+The five steps to generate a key:
+1) Take the smaller valued joker (9) and swap it with the card after it
+2) Take the larger valued joker (10) and swap it with the card after it, twice.
+3) Preform a triple cut. That is to say, everything before the first joker is swapped with everything after the second joker.
+4) Preform a count cut. Take the bottom card off the deck. Look at its value, if that card is the larger joker (10) use the value of the smaller one instead (9). Count that many cards from the top of the deck and put them on the bottom. Replace the card you looked at at the bottom of the deck.
+5) Look at the value of the top card. Count down that many cards after it. This is your key value. If the key is a joker (9 or 10) ignore this key and generate another.
+
+Treat the deck as a loop. If there is a joker at the bottom that needs to be swapped with the card after it, swap it with the top card.
+
+To generate the next key. repeat the above 5 steps. Repeat until the desired number of keys have been generated.
+As long as deck starts in the same order, the same sequence of keys will be generated. So, as long as the person with the message to decrypt starts with the same deck order as the person who encrypted the message, they can generate the same keys and decrypt the message.
+
+
+Example deck and 2 example keys:
+
+cards 1-10 (9 and 10 are the jokers)
+1 2 4 9 5 3 10 6 7 8
+
+Step 1: Swap the small joker (9) with the card after it (5)
+1 2 4 5 9 3 10 6 7 8
+
+Step2: Swap the large joker (10) with the card after it (6) and then again (7)
+1 2 4 5 9 3 6 7 10 8
+
+Step3: Triple cut. Everything before the first joker (9) is switched with everything after the second joker (10)
+(1 2 4 5 )9 3 6 7 10 (8) <-swap these two portions
+(8) 9 3 6 7 10 (1 2 4 5) and done.
+8 9 3 6 7 10 1 2 4 5
+
+Step4: Count cut. get the value of the bottom card (5) count that many cards down from the top and move them to the back. Replace the 5 at the very bottom.
+8 9 3 6 7 10 1 2 4 5 <- count five from the top
+(8 9 3 6 7) 10 1 2 4 5 <- move them to the bottom but then put 5 at the very bottom
+10 1 2 4 (8 9 3 6 7) 5 and done.
+10 1 2 4 8 9 3 6 7 5
+
+Step5: Look at the value of the top card (if it is a joker, use the value of the smaller joker) count down that many cards after the top card. This is your key value.
+10 1 2 4 8 9 3 6 7 5  <- top card is a 10 which is a joker, so we use the smaller joker (9)
+Count down nine cards after the first card.
+10 1 2 4 8 9 3 6 7 (5) <- this is our key. It is not a joker so its a safe key value.
+
+So the first key generated is "5".
+
+
+
+
+Problem:
+Using a deck (key generator) of 28 cards (1-26 normal cards 27 and 28 are the jokers) decrypt the following message:
+HOZDYAKKSHCSXKU
+
+The deck starts in the following order (top to bottom):
+09 10 25 03 06 22 01 07 26 17 04 15 18 28 16 14 08 27 13 20 11 19 02 24 23 21 05 12
+
+Be careful as a single mistake will cause every key after the mistake to be invalid.
+This deck has been arranged specifically to test whether or not you read all the instructions :) every special case will come up at least once.

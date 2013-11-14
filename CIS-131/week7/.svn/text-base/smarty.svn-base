@@ -1,0 +1,52 @@
+#!/usr/bin/perl
+dbmopen(%mem, "memory", 0666) or die "Error in filename $!\n";
+
+while (<STDIN>) {
+    if (/^(?:[Ww]hat) is \b(\w+)\b\?$/) {
+	my $name = &capitalize($1);
+        my $type = $mem{$name};
+        my $aan = &getAan($type);
+        if ($type) {
+	    print "$name is $aan $type.\n";
+        }
+        else {
+	    print "I don't know $name.\n";
+	}
+    }
+    elsif (/^[Ww]ho is an? \b(\w+)\b\?$/) {
+	my $type = &capitalize($1);
+	my @vals = values %mem;
+	my @keys = keys %mem;
+	my $count = 0;
+	my $aan = &getAan($type);
+	for ($i=0;$i le $#vals;$i++) {
+	    if ($vals[$i]eq$type) {
+		$count++;
+		print "$keys[$i] is $aan $type.\n";
+	    }
+	}
+	if ($count == 0) {
+	    print "Nobody is $aan $type.\n";
+	}
+    }
+    elsif (/^(\b\w+\b) is an? (\b\w+\b)\.$/) {
+	$mem{&capitalize($1)} = &capitalize($2);
+    }
+}
+
+dbmclose(%mem);
+
+sub getAan {
+    my $aan = "a";
+    if ($_[0] =~ /\b[aeiou]\w*\b/i) {
+	$aan .= "n";
+    }
+    return $aan;
+}
+
+sub capitalize {
+    my $word = $_[0];
+    $word =~ s/([\w']+)/\u\L$1/g;
+    return $word;
+}
+

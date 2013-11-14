@@ -1,0 +1,7 @@
+Report for my store:
+# Name                Price     Qty       Value     
+1 Baseball caps       7.99      50        399.50    
+2 Traditional mugs    5.99      15        89.85     
+3 Large T-shirts      12.99     60        779.40    
+
+Total inventory value: 1268.75

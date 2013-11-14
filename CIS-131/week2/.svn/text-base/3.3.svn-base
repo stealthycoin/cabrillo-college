@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+chomp(@names = <STDIN>);
+print "Print sorted list on one line? (y/n): ";
+chomp($yn = <STDIN>);
+if ($yn eq 'y') {
+    $delim = " ";
+}
+if ($yn eq 'n') {
+    $delim = "\n";
+}
+@names = sort @names;
+foreach $name (@names) {
+    print $name . $delim;
+}
+if ($delim eq ' ') {
+    print "\n";
+}
+

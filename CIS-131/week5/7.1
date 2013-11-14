@@ -1,0 +1,7 @@
+#!/usr/bin/perl 
+@lines = <>;
+foreach $line (@lines) {
+    if ($line =~ /[Ff]red/) {
+	print $line;
+    }
+}

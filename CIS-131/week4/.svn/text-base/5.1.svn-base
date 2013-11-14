@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+while (defined($line = <>)) {    
+    push @wordlist, $line;
+}
+@wordlist = reverse @wordlist;
+foreach $line (@wordlist) {
+    print $line;
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+print "This program multiplys two numbers\nEnter first number: ";
+chomp($one = <STDIN>);
+print "Enter second number: ";
+chomp($two = <STDIN>);
+print $one * $two;
+print "\n";

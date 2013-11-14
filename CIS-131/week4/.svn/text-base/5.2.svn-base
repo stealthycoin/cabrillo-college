@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+chomp(@words = <stdin>);
+print "123456789012345678901234567890123456789012345678901234567890\n";
+foreach $word (@words) {
+    printf("%20s\n", $word);
+}

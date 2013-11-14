@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+chomp(@numbers = <stdin>);
+print "count ".@numbers."\n";
+$sum = 0;
+$max = 0;
+foreach $num (@numbers) {
+    $sum += $num;
+    if ($max lt $num) {
+	$max = $num;
+    }
+}
+print "sum ".$sum."\n";
+print "max ".$max."\n";

@@ -1,0 +1,6 @@
+1. Does a comment change the way that a program compiles or runs?
+No.
+
+2. What error message does the compiler report when you leave out the following command?
+hello.cpp: In function ‘int main()’:
+hello.cpp:13: error: ‘cout’ was not declared in this scope

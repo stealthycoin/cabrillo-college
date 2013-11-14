@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+greet( "Fred" );
+greet( "Barney" );
+greet( "Wilma" );
+greet( "Betty" );
+@names = ();
+sub greet {
+    my $name = $_[0];
+    print "Hi ".$name."! ";
+    if ($#names lt 0) {
+        print "You are the first one here!\n";
+    }
+    else {
+	print "I've seen: ";
+	foreach $n (@names) {
+	    print $n . " ";
+	}
+	print "\n";
+    }
+    push(@names, $name);
+}

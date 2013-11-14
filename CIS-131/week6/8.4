@@ -1,0 +1,6 @@
+#!/usr/bin/perl                                                                 
+while (<>) {
+    if (/(\b\S*[aA]\b)/) {
+        print "Word contains '" . $1 . "'\n";
+    }
+}

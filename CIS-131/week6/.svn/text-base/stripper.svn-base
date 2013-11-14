@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+@lines = <>;
+$" = "";
+foreach $line (@lines) {
+    $line =~ s/<p>|<\/p>|<br>|<br \/>/\n/g;
+    $line =~ s/<hr>/************************************************************\n/g;
+    $line =~ s/<em>|<\/em>/\//g;
+    $line =~ s/<(.+?)>//g;
+}
+print "@lines";

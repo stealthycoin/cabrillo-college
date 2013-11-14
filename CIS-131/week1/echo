@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+print "Enter string to print: ";
+chomp($toPrint = <STDIN>);
+print "Print how many times?: ";
+chomp($numTimes = <STDIN>);
+$i = 0;
+while ($i < $numTimes){
+    print $toPrint;
+    print "\n";
+    $i = $i + 1;
+}

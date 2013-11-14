@@ -1,0 +1,34 @@
+Exercise Questions
+
+   1. What is your personal Blackboard login (NOT your password)?
+   	jocarl1088
+   2. What do you do if you are late to class?
+   enter quietly and find out what you missed from another student during a break or after class
+   3. Where is the instructor's contact information located?
+   www.edparrish.com
+   4. What is the closest building next to the instructor's office?
+   1600
+   5. What is the URL where all lab and programming assignments are listed?
+   http://www.edparrish.com/cs11/09s/schedule.php
+   6. Where do you turn in homework assignments?
+   https://online.cabrillo.edu/webct/urw/lc2044122001.tp0/cobaltMainFrame.dowebct
+   7. What course should you take before this one if you are not familiar with computers?
+   CS1
+   8. How much time should you expect to spend on this course outside of the classroom?
+   11
+   9. What is CodeLab and why should you spend $25 to purchase it?
+      A Powerful Tool for Programming Instruction  and Designed to reduce attrition and raise the overall level of the class
+  10. What compiler must you use for this course?
+  g++
+  11. What is scholastic dishonesty?
+   cheating, plagurism, collusion, misrepresenting facts
+  12. What is an example of acceptable help and an example of unacceptable help on assignments?
+  Looking at another person's code while typing or writing your own program
+  13. Why is eating and drinking prohibited in the classroom?
+  Beacause of the Computers
+  14. What are three things you should do to succeed in this course?
+  Come to class, Do the lab, not cheating
+  15. In your life, what are three things you choose to do?
+  Arm wrestle with sasquatch, Boat to taiwan, Wear clothes
+  16. In your life, what are three things you have to do?
+  Take cs 11, watch tv, follow the laws of physics

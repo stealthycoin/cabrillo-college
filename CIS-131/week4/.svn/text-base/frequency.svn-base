@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+print "Enter file 1: ";
+$file1 = <STDIN>;
+print "Enter file 2: ";
+$file2 = <STDIN>;
+open FILEONE, $file1;
+open FILETWO, $file2;
+chomp(@f1 = <FILEONE>);
+chomp(@f2 = <FILETWO>);
+foreach $l1 (@f2) {
+    if ($l1 != 0) {
+	$count = 0;
+	foreach $l2 (@f1) {
+	    if ($l1 == $l2) {
+		$count++;
+	    }
+	}
+    }
+    print "$l1 $count\n";
+}

@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+$" = "";
+@input = <>;
+foreach $input (@input) {
+    $input =~ s/</&lt;/g;
+    $input =~ s/>/&gt;/g;
+    $input =~ s/#/<em>#/g;
+    if ($input =~ /#/) {
+	$input =~ s!\n!</em>\n!;
+    }
+}
+unshift @input, "<pre>\n";
+push @input, "</pre>\n";
+print @input;

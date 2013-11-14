@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+chomp(@lines = <STDIN>);
+@indicies = ();
+$nums = shift(@lines);
+for ($i = 0;$i < $nums;$i++) {
+    push(@indicies, shift(@lines));
+}
+foreach $index (@indicies) {
+    if ($index > -1 && $index <= $#lines) {
+	print $lines[$index]."\n";
+    }
+}

@@ -1,0 +1,8 @@
+face forward
+turn Left 90 degrees
+forward 4 steps
+turnRight 90 degrees
+forward 8 steps
+turnLeft 90 degrees
+forward 5 steps out the door 
+Fin

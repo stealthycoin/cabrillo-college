@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+my @fred = above_average(1..10); 
+print "\@fred is @fred\n"; 
+print "(Should be 6 7 8 9 10)\n"; 
+my @barney = above_average(100, 1..10); 
+print "\@barney is @barney\n"; 
+print "(Should be just 100)\n"; 
+sub above_average {
+    my(@nums) = @_;
+    my $tot = total(@nums);
+    my $average = $tot / @nums;
+    @above_average = ();
+    foreach $num  (@nums) {
+	if ($num > $average) {
+	    push(@above_average, $num);
+	}
+    }
+    @above_average;
+}
+sub total {
+    $total = 0;
+    my(@nums) = @_;
+    foreach $num (@nums) {
+        $total += $num;
+    }
+    $total;
+}

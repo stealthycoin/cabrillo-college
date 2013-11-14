@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+@range = (1..1000);
+print total(@range)."\n";
+sub total {
+    $total = 0;
+    my(@nums) = @_;
+    foreach $num (@nums) {
+	$total += $num;
+    }
+    $total;
+}

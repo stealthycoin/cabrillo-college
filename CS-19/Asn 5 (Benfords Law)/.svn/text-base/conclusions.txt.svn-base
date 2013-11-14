@@ -1,0 +1,14 @@
+Benford's law holds true for most of these data sets.
+The distribution of first digit is very close to the law log(1 + 1/d) where d is the digit in question.
+Expected frequencies of each first digit according to the law:
+1: 30.1%
+2: 17.6%
+3: 12.5%
+4: 9.6%
+5: 7.9%
+6: 6.7%
+7: 5.8%
+8: 5.1%
+9: 4.5%
+
+The data sets that illustrated this the best was the library and sunspots data.

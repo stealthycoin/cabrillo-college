@@ -1,0 +1,12 @@
+Q1: To how many numeric fields does width() or setw() formatting functions apply?
+A: One
+Q2: By default, are numbers output ios::left or ios::right?
+A2: ios::right
+Q3: How many digits are displayed? Why?
+A3: 5, will always finish writing the field even if it has to break formatting.
+Q4: What is the problem with this code?
+A4: whitespace left in buffer
+Q5: Why did this line fix the problem?
+A5: Clears buffer of whitespace
+Q6: How does this fix compare to using cin.ignore()?
+A6: >> ws clears whitespace out of the buffer, cin.ignore causes it to be ignored for x number of characters, or up until a specified character.

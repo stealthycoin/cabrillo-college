@@ -1,0 +1,133 @@
+// Floyd-Warshall Code.
+import java.io.*;
+
+public class FloydWarshall {
+
+private static int matrixSize=0;
+private static int Rows=0;
+private static int Columns=0;
+private static int [] [] DMatrix;
+private static String infinityString="---";
+private static int infinity=100;
+/*private int[][] startW =
+{{ 0, 2, -3, infinity},
+{infinity, 0, -1, 3},
+{infinity, infinity, 0, 3},
+{infinity, -2, infinity, 0}};*/
+
+/*
+* Constructor
+*/
+public FloydWarshall() {
+//Supports paths with distances from -99 to 99., change
+infinity key for more
+System.out.println("Floyd-Warshall\n" +
+"Note: --- denotes infinity.\n");
+doFloydWarshall(DMatrix, matrixSize);
+System.out.println("Floyd-Warshall computation complete.");
+}
+
+private void doFloydWarshall(int[][] oldW, int matrixSize) {
+printMatrix(DMatrix, matrixSize, 0);
+int[][] newW = new int[matrixSize][matrixSize];
+for (int k = 0; k < matrixSize; k++) {
+for (int i = 0; i < matrixSize; i ++) {
+for (int j = 0; j < matrixSize; j ++) {
+newW[i][j] = min(i, j, k, oldW);
+}
+}
+oldW = newW;
+printMatrix(newW, matrixSize, k + 1);
+}
+}
+
+/*
+* Finds the minimum: min(d_ij, d_ik + d_kj) of the matrix (k-1).
+*
+* @param i The row value.
+* @param j The column value.
+* @param k The matrix number
+* @paramt W The (k-1) matrix.
+*/
+private int min(int i, int j, int k, int[][] W){
+int d_ij = W[i][j];
+int d_ik = W[i][k];
+int d_kj = W[k][j];
+if (d_ik == infinity || d_kj == infinity) return d_ij;
+else
+{
+return (d_ij <= d_ik + d_kj) ? d_ij : d_ik + d_kj;
+}
+}
+
+/*
+* @param distance The distance value to be padded.
+*/
+private String pad(int distance) {
+String value = String.valueOf(distance);
+int pad = 3 - value.length();
+for (int i = 0; i < pad; i ++) {
+value = " " + value;
+}
+return value;
+}
+
+/*
+* Prints as output the given matrix.
+*
+* @param matrix The matrix to be printed.
+* @param matrixSize The number of rows and columns in the matrix.
+* @param matrixNumber The matrix number.
+*/
+private void printMatrix(int[][] matrix, int matrixSize, int
+matrixNumber) {
+System.out.print("D(" + matrixNumber + ") = ");
+for (int i = 0; i < matrixSize; i++) {
+if (i != 0) System.out.print(" ");
+System.out.print("[ ");
+if (matrix[i][0] == infinity)
+System.out.print(infinityString);
+else System.out.print(pad(matrix[i][0]));
+for (int j = 1; j < matrixSize; j++) {
+System.out.print(", ");
+if (matrix[i][j] == infinity)
+System.out.print(infinityString);
+else System.out.print(pad(matrix[i][j]));
+}
+System.out.println(" ]");
+}
+System.out.println(" ");
+}
+
+public static void main(String[] args)
+{
+try
+{
+BufferedReader console=new BufferedReader(new
+InputStreamReader(System.in));
+System.out.println("Enter the size of the matrix: ");
+String input=console.readLine();
+matrixSize=Integer.parseInt(input);
+Rows=matrixSize;	 Columns=matrixSize;
+DMatrix=new int[Rows][Columns];
+for(int i=0; i<Rows; i++)
+{
+for(int j=0; j<Columns; j++)
+{
+System.out.print("Enter the values for the matrix
+["+i+"]"+"["+j+"] = ");
+input=console.readLine();
+int numinput=Integer.parseInt(input);
+if(numinput==99)
+infinity=numinput;
+DMatrix[i][j]=numinput;
+}
+}
+new FloydWarshall();
+}
+catch(Exception e)
+{
+System.out.println(e);
+}
+}
+}
